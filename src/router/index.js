@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '@/content/users/login.vue'
-import Enroll from '@/content/users/enroll.vue'
-import Index from '@/content/users/index.vue'
-import Medicinal from '@/content/petMedicinal/medicinal.vue'
-import Food from '@/content/petFood/food.vue'
-import DailyNecessities from '@/content/petDailyNecessities/dailyNecessities.vue'
-import Pet from '@/content/pet/pet.vue'
+import Login from '@/views/users/login.vue'
+import Enroll from '@/views/users/enroll.vue'
+import Index from '@/views/users/index.vue'
+import Medicinal from '@/views/petMedicinal/medicinal.vue'
+import Food from '@/views/petFood/food.vue'
+import DailyNecessities from '@/views/petDailyNecessities/dailyNecessities.vue'
+import Pet from '@/views/pet/pet.vue'
 
 
 
