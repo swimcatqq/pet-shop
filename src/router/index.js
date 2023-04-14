@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '@/views/users/login.vue'
-import Enroll from '@/views/users/enroll.vue'
-import Index from '@/views/users/index.vue'
+import Login from '@/views/users/Login.vue'
+import Register from '@/views/users/Register.vue'
+import Index from '@/views/users/Index.vue'
 import Medicinal from '@/views/petMedicinal/medicinal.vue'
 import Food from '@/views/petFood/food.vue'
 import DailyNecessities from '@/views/petDailyNecessities/dailyNecessities.vue'
@@ -14,11 +14,6 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'login',
-      component: Login,
-    },
-    {
-      path: '/index',
       name: 'index',
       component: Index,
       children:[
@@ -45,9 +40,14 @@ const router = createRouter({
       ]
     },
     {
-      path: '/enroll',
-      name: 'enroll',
-      component: Enroll
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
   ]
 })
