@@ -65,6 +65,7 @@
 //引入ref和computed函数并调用它们来创建一个响应式变量和一个计算属性，用于保存倒计时的时间和计算剩余时间
 import { reactive, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
 //从http中引入封装的login请求方法
 import { login } from '@/api/users'
 
@@ -103,8 +104,6 @@ const toRegister = () => {
     router.push('/register')
 }
 
-
-
 //点击登录按钮时
 const submitForm = (formEl) => {
     //判断这个按钮存在
@@ -113,6 +112,11 @@ const submitForm = (formEl) => {
         //如果校验成功，走这里
         if (valid) {
             console.log('点击了登录按钮!', ruleForm)
+            ElMessage('登录成功！3s后跳转到首页')
+            setTimeout(() => {
+                router.push('/')
+                //目前跳转到没有详情的首页，即未登录的首页，之后要跳到有商品详情的首页
+            }, 3000)
             //把用户填写的信息发到后端，拿到返回值
             // login(ruleForm).then((res) => {
             //     console.log(res)
@@ -126,7 +130,7 @@ const submitForm = (formEl) => {
             //         ElMessage.error('登录失败', fields)
             //     }
             // })
-        } 
+        }
         //校验失败走这里
         else {
             console.log('error submit!', fields)
@@ -143,9 +147,6 @@ function usePassword() {
 }
 
 
-const checkCode = () => {
-
-}
 //rules校验规则
 const rules = reactive({
     //校验手机号
@@ -155,9 +156,9 @@ const rules = reactive({
         //trigger表示触发的时机，blur表示在失去焦点时触发
         { required: true, message: '手机号不能为空哦🤷‍♀️', trigger: 'blur' },
         //检验手机号是否合法，pattern是正则，message是正则校验不通过时，弹出的提示信息
-        { 
+        {
             pattern: /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-79])|(?:5[0-35-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[1589]))\d{8}$/,
-            message: '请检查输入的手机号格式是否有误', 
+            message: '请检查输入的手机号格式是否有误',
             trigger: 'blur'
         }
     ],
