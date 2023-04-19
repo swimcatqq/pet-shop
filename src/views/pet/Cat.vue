@@ -1,13 +1,13 @@
 <template>
     <div>
-      这是宠物日常用品界面
+        <h2>猫猫,{{ count }}</h2>
     </div>
 </template>
 
 <script setup>
-
+   const count = 1
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
